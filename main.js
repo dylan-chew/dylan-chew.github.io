@@ -3,7 +3,7 @@
 (function () {
     // Fetch data from api and store it into local storage if it doens't already exist
     var fetchJSON = function () {
-        fetch('//api.tvmaze.com/shows/83/episodes')
+        fetch('https://api.tvmaze.com/shows/83/episodes')
             .then((res) => res.json())
             .then(function (rawJSON) {
 
