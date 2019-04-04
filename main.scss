@@ -1,0 +1,47 @@
+//Free font for personal use. ReadMe file in font folder.
+@font-face {
+  font-family: "Simpsons";
+  src: url("fonts/Simpsonfont\ DEMO.otf") format("opentype");
+}
+
+$body-font-stack: "Simpsons", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial,
+  sans-serif;
+$background-color: #ffd90f;
+
+@mixin box-shadow($top, $left, $blur, $size, $color) {
+  -webkit-box-shadow: $top $left $blur $size $color;
+  -moz-box-shadow: $top $left $blur $size $color;
+  box-shadow: $top $left $blur $size $color;
+}
+
+body {
+  font-family: $body-font-stack;
+  background-color: $background-color;
+}
+
+.episodeName {
+  font-size: 200%;
+}
+
+.seasons {
+    img {
+        @include box-shadow(5px, 5px, 6px, 0, rgba(0, 0, 0, 0.7));
+    }
+    padding: 2%;
+}
+
+.episodeImage {
+  img {
+    @include box-shadow(5px, 5px, 6px, 0, rgba(0, 0, 0, 0.7));
+  }
+  padding: 2%;
+}
+
+.seasonImage {
+  transition: transform .2s;
+}
+
+.seasonImage:hover {
+  transform: scale(1.2)
+}
+

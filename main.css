@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "Simpsons";
+  src: url("fonts/Simpsonfont DEMO.otf") format("opentype");
+}
+
+body {
+  font-family: "Simpsons", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  background-color: #ffd90f;
+}
+
+.episodeName {
+  font-size: 200%;
+}
+
+.seasons {
+  padding: 2%;
+}
+
+.seasons img {
+  -webkit-box-shadow: 5px 5px 6px 0 rgba(0, 0, 0, 0.7);
+  box-shadow: 5px 5px 6px 0 rgba(0, 0, 0, 0.7);
+}
+
+.episodeImage {
+  padding: 2%;
+}
+
+.episodeImage img {
+  -webkit-box-shadow: 5px 5px 6px 0 rgba(0, 0, 0, 0.7);
+  box-shadow: 5px 5px 6px 0 rgba(0, 0, 0, 0.7);
+}
+
+.seasonImage {
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
+}
+
+.seasonImage:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+/*# sourceMappingURL=main.css.map */
