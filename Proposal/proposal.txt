@@ -1,0 +1,12 @@
+My final assignment for the course will be an interactive Simpsons trivia game.
+The application will display for the user a still from an episode along with the episode's title and summary.
+Along with the episode information, the application will also display three images of Simpsons season cover art.
+Two of the seasons will be random and one will be the season the episode is from.
+The user simply has to guess the correct season and they are rewarded with a point and a plesant ding sound.
+If the user selects the wrong cover art a buzz will sound along with text feedback and the correct season number will display.
+Many Simpsons fans, including myself, consider the first 10 seasons of the show to be the "golden years" of the series.
+For that reason the application will focus on those seasons. 
+
+The Simpsons data will be pulled from the TVMaze API and I will use filter and map array methods to pull out the relevant episode information.
+Sounds are played and loaded using a JavaScript library called SoundBox.
+CSS is compiled from SASS. The API data and scores will be stored in the browser's local storage.

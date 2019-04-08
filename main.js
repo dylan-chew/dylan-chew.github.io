@@ -1,9 +1,12 @@
 //Episode information API for The Simpsons: http://api.tvmaze.com/shows/83/episodes
 
+
+//import SoundBox from "./node_modules/sound-box/soundbox.js";
+
 (function () {
     // Fetch data from api and store it into local storage if it doens't already exist
     var fetchJSON = function () {
-        fetch('https://api.tvmaze.com/shows/83/episodes')
+        fetch('http://api.tvmaze.com/shows/83/episodes')
             .then((res) => res.json())
             .then(function (rawJSON) {
 
@@ -120,12 +123,25 @@
         var currentScore = parseInt(localStorage.getItem("currentScore"));
         var episodesPlayed = parseInt(localStorage.getItem("episodesPlayed"));
 
+        //Create new SoundBox from library and load the correct (ding) and incorrect (buzz) sounds
+        var soundbox = new SoundBox();
+        soundbox.load("ding", "sounds/ding.wav").then(
+            () => console.log("Loaded ding!"),
+            () => console.error("Failed to load ding :-(")
+        );
+        soundbox.load("buzz", "sounds/buzz.wav").then(
+            () => console.log("Loaded buzz!"),
+            () => console.error("Failed to load buzz :-(")
+        );
+
         correctSeason.addEventListener("click", function () {
             feedback.innerHTML = `WooHoo!`;
             localStorage.setItem("currentScore", currentScore + 1);
             localStorage.setItem("episodesPlayed", episodesPlayed + 1);
             setScore(currentScore, episodesPlayed);
             correctSeasonNumDiv.innerHTML = `Season ${episodeToGuess.season}`;
+            //Play ding sound when user selects correct season
+            soundbox.play("ding");
             setTimeout(runProgram, 2000);
         })
 
@@ -134,6 +150,8 @@
             localStorage.setItem("episodesPlayed", parseInt(episodesPlayed) + 1);
             setScore(currentScore, episodesPlayed);
             correctSeasonNumDiv.innerHTML = `Season ${episodeToGuess.season}`;
+            //Play buzz sound when user selects the wrong season
+            soundbox.play("buzz");
             setTimeout(runProgram, 2000);
         })
 
@@ -142,6 +160,7 @@
             localStorage.setItem("episodesPlayed", parseInt(episodesPlayed) + 1);
             setScore(currentScore, episodesPlayed);
             correctSeasonNumDiv.innerHTML = `Season ${episodeToGuess.season}`;
+            soundbox.play("buzz");
             setTimeout(runProgram, 2000);
         })
     }

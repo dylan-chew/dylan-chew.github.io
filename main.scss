@@ -4,8 +4,7 @@
   src: url("fonts/Simpsonfont\ DEMO.otf") format("opentype");
 }
 
-$body-font-stack: "Simpsons", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial,
-  sans-serif;
+$body-font-stack: "Simpsons", "Comic Sans MS", Arial, sans-serif;
 $background-color: #ffd90f;
 
 @mixin box-shadow($top, $left, $blur, $size, $color) {
