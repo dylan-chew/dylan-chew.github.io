@@ -123,16 +123,6 @@
         var currentScore = parseInt(localStorage.getItem("currentScore"));
         var episodesPlayed = parseInt(localStorage.getItem("episodesPlayed"));
 
-        //Create new SoundBox from library and load the correct (ding) and incorrect (buzz) sounds
-        var soundbox = new SoundBox();
-        soundbox.load("ding", "sounds/ding.wav").then(
-            () => console.log("Loaded ding!"),
-            () => console.error("Failed to load ding :-(")
-        );
-        soundbox.load("buzz", "sounds/buzz.wav").then(
-            () => console.log("Loaded buzz!"),
-            () => console.error("Failed to load buzz :-(")
-        );
 
         correctSeason.addEventListener("click", function () {
             feedback.innerHTML = `WooHoo!`;
@@ -140,8 +130,6 @@
             localStorage.setItem("episodesPlayed", episodesPlayed + 1);
             setScore(currentScore, episodesPlayed);
             correctSeasonNumDiv.innerHTML = `Season ${episodeToGuess.season}`;
-            //Play ding sound when user selects correct season
-            soundbox.play("ding");
             setTimeout(runProgram, 2000);
         })
 
@@ -150,8 +138,6 @@
             localStorage.setItem("episodesPlayed", parseInt(episodesPlayed) + 1);
             setScore(currentScore, episodesPlayed);
             correctSeasonNumDiv.innerHTML = `Season ${episodeToGuess.season}`;
-            //Play buzz sound when user selects the wrong season
-            soundbox.play("buzz");
             setTimeout(runProgram, 2000);
         })
 
@@ -160,7 +146,6 @@
             localStorage.setItem("episodesPlayed", parseInt(episodesPlayed) + 1);
             setScore(currentScore, episodesPlayed);
             correctSeasonNumDiv.innerHTML = `Season ${episodeToGuess.season}`;
-            soundbox.play("buzz");
             setTimeout(runProgram, 2000);
         })
     }
